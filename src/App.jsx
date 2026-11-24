@@ -70,11 +70,6 @@ export default function App() {
           <span className="status-text">Available Now • Ready to Connect</span>
         </div>
 
-        {/* Header */}
-        <div className="card-header">
-          <h1 className="main-title">Contact Directly</h1>
-          <p className="subtitle">Choose your preferred country and contact method</p>
-        </div>
 
         {/* Country Selector Dropdown */}
         <div className="country-selector-container">

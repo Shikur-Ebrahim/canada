@@ -1,0 +1,467 @@
+/* Layout & Base */
+.page-wrapper {
+  min-height: 100vh;
+  width: 100%;
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.25rem 1rem;
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  color: #111827;
+}
+
+.contact-card {
+  width: 100%;
+  max-width: 440px;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 20px;
+  padding: 1.75rem 1.5rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05), 0 1px 3px rgba(0, 0, 0, 0.02);
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  box-sizing: border-box;
+}
+
+/* Status Badge */
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  align-self: center;
+  background-color: #ecfdf5;
+  color: #065f46;
+  padding: 0.35rem 0.85rem;
+  border-radius: 9999px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  border: 1px solid #a7f3d0;
+}
+
+.pulse-dot {
+  width: 8px;
+  height: 8px;
+  background-color: #10b981;
+  border-radius: 50%;
+  box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+  animation: pulse 1.8s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+  }
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 7px rgba(16, 185, 129, 0);
+  }
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0);
+  }
+}
+
+/* Header */
+.card-header {
+  text-align: center;
+}
+
+.main-title {
+  font-size: 1.65rem;
+  font-weight: 800;
+  margin: 0;
+  color: #0f172a;
+  letter-spacing: -0.02em;
+}
+
+.subtitle {
+  font-size: 0.92rem;
+  color: #64748b;
+  margin: 0.35rem 0 0 0;
+}
+
+/* Tabs for Fast 1-tap switching */
+.tabs-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+  background: #f1f5f9;
+  padding: 0.25rem;
+  border-radius: 14px;
+}
+
+.tab-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.65rem 0.5rem;
+  border: none;
+  background: transparent;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #64748b;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.tab-button:hover {
+  color: #0f172a;
+}
+
+.tab-button.active-tab {
+  background: #ffffff;
+  color: #0f172a;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.tab-flag {
+  font-size: 1.25rem;
+}
+
+/* Custom Dropdown */
+.country-selector-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.selector-label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.custom-dropdown {
+  position: relative;
+  width: 100%;
+}
+
+.dropdown-trigger {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1rem;
+  background-color: #f8fafc;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 12px;
+  cursor: pointer;
+  box-sizing: border-box;
+  transition: border-color 0.2s, background-color 0.2s;
+}
+
+.dropdown-trigger:hover,
+.dropdown-trigger:focus {
+  background-color: #f1f5f9;
+  border-color: #cbd5e1;
+  outline: none;
+}
+
+.dropdown-left {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.flag-icon {
+  font-size: 1.35rem;
+}
+
+.country-name-bold {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #1e293b;
+}
+
+.country-code-pill {
+  font-size: 0.75rem;
+  font-weight: 600;
+  background: #e2e8f0;
+  color: #475569;
+  padding: 0.15rem 0.45rem;
+  border-radius: 6px;
+}
+
+.chevron-icon {
+  color: #64748b;
+  transition: transform 0.2s ease;
+}
+
+.chevron-icon.rotated {
+  transform: rotate(180deg);
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  right: 0;
+  background: #ffffff;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 12px;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+  z-index: 50;
+  overflow: hidden;
+  animation: fadeIn 0.15s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.dropdown-option {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 0.85rem 1rem;
+  background: #ffffff;
+  border: none;
+  cursor: pointer;
+  border-bottom: 1px solid #f1f5f9;
+  text-align: left;
+  transition: background-color 0.15s ease;
+}
+
+.dropdown-option:last-child {
+  border-bottom: none;
+}
+
+.dropdown-option:hover {
+  background-color: #f8fafc;
+}
+
+.dropdown-option.active {
+  background-color: #f0fdf4;
+}
+
+.option-flag {
+  font-size: 1.35rem;
+  margin-right: 0.65rem;
+}
+
+.option-name {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #1e293b;
+  flex: 1;
+}
+
+.option-number {
+  font-size: 0.85rem;
+  color: #64748b;
+  font-weight: 500;
+}
+
+/* Phone Display Box */
+.phone-display-box {
+  background: #f8fafc;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 14px;
+  padding: 1rem 1.15rem;
+}
+
+.phone-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.4rem;
+}
+
+.phone-tag {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.copy-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  padding: 0.3rem 0.55rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #475569;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.copy-button:hover {
+  background: #f1f5f9;
+  color: #0f172a;
+}
+
+.text-green {
+  color: #10b981 !important;
+}
+
+.number-text {
+  font-size: 1.45rem;
+  font-weight: 800;
+  color: #0f172a;
+  letter-spacing: 0.02em;
+}
+
+/* Action Buttons Group */
+.action-buttons-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.action-btn {
+  display: flex;
+  align-items: center;
+  padding: 0.95rem 1.15rem;
+  border-radius: 14px;
+  text-decoration: none;
+  color: #ffffff;
+  cursor: pointer;
+  border: none;
+  font-family: inherit;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, filter 0.15s ease;
+  box-sizing: border-box;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.action-btn:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.05);
+}
+
+.action-btn:active {
+  transform: translateY(0);
+}
+
+.btn-icon-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 11px;
+  margin-right: 0.9rem;
+  flex-shrink: 0;
+}
+
+.brand-svg {
+  fill: #ffffff;
+}
+
+.btn-text-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  flex: 1;
+  text-align: left;
+}
+
+.btn-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.btn-subtitle {
+  font-size: 0.8rem;
+  opacity: 0.9;
+  margin-top: 0.15rem;
+}
+
+.action-arrow {
+  font-size: 1.25rem;
+  font-weight: bold;
+  opacity: 0.75;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.action-btn:hover .action-arrow {
+  transform: translateX(4px);
+  opacity: 1;
+}
+
+/* Button Color Schemes */
+/* 1. Direct Call: Vivid Emerald */
+.btn-call {
+  background: linear-gradient(135deg, #059669 0%, #10b981 100%);
+  box-shadow: 0 4px 14px rgba(16, 185, 129, 0.35);
+}
+
+/* 2. WhatsApp: Official Green */
+.btn-whatsapp {
+  background: linear-gradient(135deg, #128c7e 0%, #25d366 100%);
+  box-shadow: 0 4px 14px rgba(37, 211, 102, 0.35);
+}
+
+/* 3. Telegram: Official Sky Blue */
+.btn-telegram {
+  background: linear-gradient(135deg, #0088cc 0%, #229ed9 100%);
+  box-shadow: 0 4px 14px rgba(34, 158, 217, 0.35);
+}
+
+/* 4. IMO: Official Blue */
+.btn-imo {
+  background: linear-gradient(135deg, #0277bd 0%, #039be5 100%);
+  box-shadow: 0 4px 14px rgba(3, 155, 229, 0.35);
+}
+
+/* Footer */
+.card-footer {
+  text-align: center;
+  padding-top: 0.25rem;
+}
+
+.guarantee-text {
+  font-size: 0.82rem;
+  color: #64748b;
+  margin: 0;
+  font-weight: 500;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 480px) {
+  .page-wrapper {
+    padding: 0.75rem;
+  }
+
+  .contact-card {
+    padding: 1.35rem 1.15rem;
+    border-radius: 16px;
+    border: none;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+  }
+
+  .main-title {
+    font-size: 1.45rem;
+  }
+
+  .number-text {
+    font-size: 1.3rem;
+  }
+
+  .action-btn {
+    padding: 0.85rem 1rem;
+  }
+}
